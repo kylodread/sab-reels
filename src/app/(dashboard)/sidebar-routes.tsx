@@ -32,7 +32,7 @@ export const SidebarRoutes = () => {
     <div className="flex flex-col gap-y-4 flex-1">
       {shouldBlock && !isLoading && (
         <>
-          <div className="px-3">
+          {/* <div className="px-3">
             <Button
               onClick={() => mutation.mutate()}
               disabled={mutation.isPending}
@@ -43,7 +43,7 @@ export const SidebarRoutes = () => {
               <Crown className="mr-2 size-4 fill-yellow-500 text-yellow-500" />
               Upgrade to Pro
             </Button>
-          </div>
+          </div> */}
           <div className="px-3">
             <Separator />
           </div>
@@ -56,7 +56,7 @@ export const SidebarRoutes = () => {
         <Separator />
       </div>
       <ul className="flex flex-col gap-y-1 px-3">
-        <SidebarItem href={pathname} icon={CreditCard} label="Billing" onClick={onClick} />
+        {/* <SidebarItem href={pathname} icon={CreditCard} label="Billing" onClick={onClick} /> */}
         <SidebarItem
           href="mailto:support@example.com"
           icon={MessageCircleQuestion}
