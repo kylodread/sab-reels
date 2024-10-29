@@ -12,7 +12,6 @@
     "db:studio": "bunx drizzle-kit studio"
   },
   "dependencies": {
-    "@auth/core": "^0.34.1",
     "@auth/drizzle-adapter": "^1.4.1",
     "@hono/auth-js": "^1.0.10",
     "@hono/zod-validator": "^0.2.2",
