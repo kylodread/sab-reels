@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { SessionProvider } from "next-auth/react";
-
-import { SubscriptionAlert } from "@/features/subscriptions/components/subscription-alert";
-
-import { auth } from "@/auth";
 import { Modals } from "@/components/modals";
 import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "@/components/providers";
@@ -18,25 +13,20 @@ export const metadata: Metadata = {
   description: "Build Something Great!",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await auth();
-
   return (
-    <SessionProvider session={session}>
-      <html lang="en">
-        <body className={inter.className}>
-          <Providers>
-            <Toaster />
-            <Modals />
-            <SubscriptionAlert />
-            {children}
-          </Providers>
-        </body>
-      </html>
-    </SessionProvider>
+    <html lang="en">
+      <body className={inter.className}>
+        <Providers>
+          <Toaster />
+          <Modals />
+          {children}
+        </Providers>
+      </body>
+    </html>
   );
 }
