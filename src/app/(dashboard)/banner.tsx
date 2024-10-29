@@ -21,6 +21,9 @@ export const Banner = () => {
         json: "",
         width: 900,
         height: 1200,
+        userId: "defaultUserId",
+        createdAt: new Date(),
+        updatedAt: new Date(),
       },
       {
         onSuccess: ({ data }) => {
