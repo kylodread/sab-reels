@@ -13,6 +13,8 @@ import {
   Undo2
 } from "lucide-react";
 
+import { UserButton } from "@/features/auth/components/user-button";
+
 import { ActiveTool, Editor } from "@/features/editor/types";
 import { Logo } from "@/features/editor/components/logo";
 
@@ -208,6 +210,7 @@ export const Navbar = ({
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
+          <UserButton />
         </div>
       </div>
     </nav>
