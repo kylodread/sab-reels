@@ -1,12 +1,20 @@
+import { redirect } from "next/navigation";
 import { Navbar } from "./navbar";
 import { Sidebar } from "./sidebar";
 
+import { auth } from "@/auth";
+
 interface DashboardLayoutProps {
   children: React.ReactNode;
-};
+}
 
-const DashboardLayout = ({ children }: DashboardLayoutProps) => {
-  return ( 
+const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
+  const session = await auth();
+  if (!session) {
+    redirect("/sign-in");
+  }
+  console.log(session);
+  return (
     <div className="bg-muted h-full">
       <Sidebar />
       <div className="lg:pl-[300px] flex flex-col h-full">
@@ -18,5 +26,5 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
     </div>
   );
 };
- 
+
 export default DashboardLayout;

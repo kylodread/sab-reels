@@ -1,12 +1,24 @@
 // export { auth as middleware } from "@/auth";
 
+import { auth } from "@/auth";
+
 import { NextRequest, NextResponse } from "next/server";
 
 // Define the list of allowed origins and methods
 const allowedOrigins = ["http://127.0.0.1:5500"];
 const allowedMethods = ["GET", "POST", "PUT", "DELETE", "OPTIONS"];
 
-export function middleware(request: NextRequest) {
+const publicRoutes = ["/api/sign-up", "/sign-up", "/sign-in"];
+
+export async function middleware(request: NextRequest) {
+  // const session = await auth();
+  // const { pathname } = request.nextUrl;
+
+  // if (!session && !publicRoutes.includes(pathname)) {
+  //   console.log(pathname)
+  //   return NextResponse.redirect(new URL("/sign-in", request.url));
+  // }
+
   const origin = request.headers.get("origin") || "";
 
   // Handle preflight requests (OPTIONS method)
