@@ -1,19 +1,11 @@
-import { redirect } from "next/navigation";
 import { Navbar } from "./navbar";
 import { Sidebar } from "./sidebar";
-
-import { auth } from "@/auth";
 
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }
 
-const DashboardLayout = async ({ children }: DashboardLayoutProps) => {
-  const session = await auth();
-  if (!session) {
-    redirect("/sign-in");
-  }
-  console.log(session);
+const DashboardLayout = ({ children }: DashboardLayoutProps) => {
   return (
     <div className="bg-muted h-full">
       <Sidebar />

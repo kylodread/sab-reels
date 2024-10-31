@@ -12,10 +12,16 @@ interface EditorProjectIdPageProps {
   params: {
     projectId: string;
   };
-}
+};
 
-const EditorProjectIdPage = ({ params }: EditorProjectIdPageProps) => {
-  const { data, isLoading, isError } = useGetProject(params.projectId);
+const EditorProjectIdPage = ({
+  params,
+}: EditorProjectIdPageProps) => {
+  const { 
+    data, 
+    isLoading, 
+    isError
+  } = useGetProject(params.projectId);
 
   if (isLoading || !data) {
     return (
@@ -29,15 +35,19 @@ const EditorProjectIdPage = ({ params }: EditorProjectIdPageProps) => {
     return (
       <div className="h-full flex flex-col gap-y-5 items-center justify-center">
         <TriangleAlert className="size-6 text-muted-foreground" />
-        <p className="text-muted-foreground text-sm">Failed to fetch project</p>
+        <p className="text-muted-foreground text-sm">
+          Failed to fetch project
+        </p>
         <Button asChild variant="secondary">
-          <Link href="/">Back to Home</Link>
+          <Link href="/">
+            Back to Home
+          </Link>
         </Button>
       </div>
     );
   }
 
-  return <Editor initialData={data} />;
+  return <Editor initialData={data} />
 };
-
+ 
 export default EditorProjectIdPage;

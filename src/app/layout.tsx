@@ -14,8 +14,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "The Canvas",
-  description: "Build Something Great",
+  title: "SAB Reels",
+  description: "Create",
 };
 
 export default async function RootLayout({
@@ -23,8 +23,10 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
-    <SessionProvider session={null}>
+    <SessionProvider session={session}>
       <html lang="en">
         <body className={inter.className}>
           <Providers>

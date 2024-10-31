@@ -1,6 +1,4 @@
-// export { auth as middleware } from "@/auth";
 
-import { auth } from "@/auth";
 
 import { NextRequest, NextResponse } from "next/server";
 
@@ -11,13 +9,7 @@ const allowedMethods = ["GET", "POST", "PUT", "DELETE", "OPTIONS"];
 const publicRoutes = ["/api/sign-up", "/sign-up", "/sign-in"];
 
 export async function middleware(request: NextRequest) {
-  // const session = await auth();
-  // const { pathname } = request.nextUrl;
 
-  // if (!session && !publicRoutes.includes(pathname)) {
-  //   console.log(pathname)
-  //   return NextResponse.redirect(new URL("/sign-in", request.url));
-  // }
 
   const origin = request.headers.get("origin") || "";
 

@@ -10,7 +10,6 @@ import subscriptions from "./subscriptions";
 import signup from "./signup";
 
 import authConfig from "@/auth.config";
-import { cors } from "hono/cors";
 
 // Revert to "edge" if planning on running on the edge
 export const runtime = "nodejs";
@@ -23,19 +22,6 @@ function getAuthConfig(c: Context): AuthConfig {
 }
 
 const app = new Hono().basePath("/api");
-
-app.use("*", cors());
-app.use(
-  "*",
-  cors({
-    origin: "http://127.0.0.1:5500",
-    allowHeaders: ["X-Custom-Header", "Upgrade-Insecure-Requests"],
-    allowMethods: ["POST", "GET", "OPTIONS"],
-    exposeHeaders: ["Content-Length", "X-Kuma-Revision"],
-    maxAge: 600,
-    credentials: true,
-  })
-);
 
 app.use("*", initAuthConfig(getAuthConfig));
 

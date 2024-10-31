@@ -97,63 +97,6 @@ export const ProjectsSection = () => {
       <div className="space-y-2 text-sm">
         {data.pages.map((group, i) => (
           <React.Fragment key={i}>
-            {/* {group.data.map((project) => (
-                <TableRow key={project.id}>
-                  <TableCell
-                    // onClick={() => router.push(`/editor/${project.id}`)}
-                    className="font-medium flex items-center gap-x-2 cursor-pointer"
-                  >
-                    <FileIcon className="size-6" />
-                    {project.name}
-                  </TableCell>
-                  <TableCell
-                    onClick={() => router.push(`/editor/${project.id}`)}
-                    className="hidden md:table-cell cursor-pointer"
-                  >
-                    {project.width} x {project.height} px
-                  </TableCell>
-                  <TableCell
-                    onClick={() => router.push(`/editor/${project.id}`)}
-                    className="hidden md:table-cell cursor-pointer"
-                  >
-                    {formatDistanceToNow(project.updatedAt, {
-                      addSuffix: true,
-                    })}
-                  </TableCell>
-                  <TableCell className="flex items-center justify-end">
-                    <DropdownMenu modal={false}>
-                      <DropdownMenuTrigger asChild>
-                        <Button
-                          disabled={false}
-                          size="icon"
-                          variant="ghost"
-                        >
-                          <MoreHorizontal className="size-4" />
-                        </Button>
-                      </DropdownMenuTrigger>
-                      <DropdownMenuContent align="end" className="w-60">
-                        <DropdownMenuItem
-                          className="h-10 cursor-pointer"
-                          disabled={duplicateMutation.isPending}
-                          onClick={() => onCopy(project.id)}
-                        >
-                          <CopyIcon className="size-4 mr-2" />
-                          Make a copy
-                        </DropdownMenuItem>
-                        <DropdownMenuItem
-                          className="h-10 cursor-pointer"
-                          disabled={removeMutation.isPending}
-                          onClick={() => onDelete(project.id)}
-                        >
-                          <Trash className="size-4 mr-2" />
-                          Delete
-                        </DropdownMenuItem>
-                      </DropdownMenuContent>
-                    </DropdownMenu>
-                  </TableCell>
-                </TableRow>
-              ))} */}
-
             {group.data.map((project) => (
               <div
                 key={project.id}
